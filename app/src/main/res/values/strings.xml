@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Mvvm-Example</string>
+
+    <string name="something_went_wrong">Something went wrong</string>
+
+    <string name="login">Login</string>
+    <string name="login_here">Login Here</string>
+    <string name="email_id">Email Id</string>
+    <string name="password">Password</string>
+    <string name="validate_empty_email_id">Please enter Email Id</string>
+    <string name="validate_email_id">Please enter valid Email Id</string>
+    <string name="validate_password">Please enter Password</string>
+    <string name="validate_password_length">Min. Password length : 6 characters </string>
+</resources>
