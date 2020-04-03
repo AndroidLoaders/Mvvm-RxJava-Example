@@ -35,10 +35,15 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
 
     private lateinit var viewModel: LoginViewModel
 
-    /** 1). For various types of TextInpuLayout example go to :
+    /**
+     *  1). To understand this demo application, you can refer this demo :
+     *      https://github.com/MindorksOpenSource/android-mvvm-architecture and
+     *      https://github.com/MindorksOpenSource
+     *
+     *  2). For various types of TextInpuLayout example go to :
      *      https://github.com/journaldev/journaldev/tree/master/Android/AndroidMaterialTextFields
      *
-     *  2). For all kind of android examples go to :
+     *  3). For all kind of android examples go to :
      *      https://github.com/journaldev/journaldev/tree/master/Android
      * */
     override fun onCreate(savedInstanceState: Bundle?) {

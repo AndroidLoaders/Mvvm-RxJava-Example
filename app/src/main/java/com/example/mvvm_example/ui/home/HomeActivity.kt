@@ -1,6 +1,9 @@
 package com.example.mvvm_example.ui.home
 
+import android.graphics.drawable.Animatable
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import com.example.mvvm_example.R
 import com.example.mvvm_example.adapter.QuestionsAdapter
@@ -28,6 +31,19 @@ class HomeActivity : BaseActivity<HomeViewModel>() {
     override fun onResume() {
         super.onResume()
         viewModel.getQuestionsListWithOptions()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu_animate_icons, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        item.icon?.run {
+            if (this is Animatable) this.start()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun getLayoutId(): Int = R.layout.activity_main

@@ -11,4 +11,9 @@
     <string name="validate_email_id">Please enter valid Email Id</string>
     <string name="validate_password">Please enter Password</string>
     <string name="validate_password_length">Min. Password length : 6 characters </string>
+
+    <string name="cut">Cut</string>
+    <string name="copy">Copy</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
 </resources>
