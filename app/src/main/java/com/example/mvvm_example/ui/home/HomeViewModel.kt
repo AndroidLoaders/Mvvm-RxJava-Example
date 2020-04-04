@@ -14,7 +14,6 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Function
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject
-import java.util.concurrent.TimeUnit
 
 class HomeViewModel private constructor(private val dataManager: DataManager) : BaseViewModel() {
 
@@ -25,8 +24,7 @@ class HomeViewModel private constructor(private val dataManager: DataManager) : 
         @Synchronized
         fun getInstance(dataManager: DataManager): HomeViewModel =
             instance ?: synchronized(this) {
-                if (instance == null) instance = HomeViewModel(dataManager)
-                instance!!
+                instance ?: HomeViewModel(dataManager).also { instance = it }
             }
     }
 
@@ -93,6 +91,9 @@ class HomeViewModel private constructor(private val dataManager: DataManager) : 
                     return getOptionsForEachQuestion(question).toObservable()
                 }
             })
-            .subscribe().autoDispose(disposables)
+            .subscribe({}, {
+                isLoadingData().onNext(false)
+                LogPrinter.printMessage(TAG, "onError ---> ${it.message ?: ""}")
+            }).autoDispose(disposables)
     }
 }

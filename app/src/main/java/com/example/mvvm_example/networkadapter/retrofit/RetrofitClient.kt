@@ -17,15 +17,12 @@ object RetrofitClient {
 
     private val TAG: String = RetrofitClient::class.java.simpleName
 
-    private const val REQUEST_TIMEOUT = 15L
+    private const val REQUEST_TIMEOUT = 10L
 
     private var apiInterface: ApiInterface? = null
     private var httpClient: OkHttpClient? = null
 
     fun createApiClient(application: Application): ApiInterface = initClient(application)
-
-    /*val apiClient: ApiInterface
-        get() = initClient()*/
 
     private fun initClient(application: Application): ApiInterface {
         if (httpClient == null) setupOkHttp(application)
@@ -51,9 +48,9 @@ object RetrofitClient {
         // TODO : Replace sample_certificate.pem with your server public
         //  certificate in raw resource and uncomment .setupNetworkSecurity(context)
         val httpBuilder = OkHttpClient().newBuilder()
-            .readTimeout(20, TimeUnit.SECONDS)
-            .connectTimeout(20, TimeUnit.SECONDS)
-            //.writeTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
+            .readTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
+            .connectTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
+            .writeTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
             //.setupNetworkSecurity(context)
             .cache(cache)
 

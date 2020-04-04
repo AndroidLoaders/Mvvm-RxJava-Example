@@ -5,7 +5,6 @@ import com.example.mvvm_example.datamanager.DataManager
 import com.example.mvvm_example.model.LoginResponse
 import com.example.mvvm_example.model.ServerLoginRequest
 import com.example.mvvm_example.ui.base.BaseViewModel
-import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject
 
 class LoginViewModel private constructor(private val dataManager: DataManager) : BaseViewModel() {
@@ -19,8 +18,7 @@ class LoginViewModel private constructor(private val dataManager: DataManager) :
         @Synchronized
         fun getInstance(dataManager: DataManager): LoginViewModel =
             instance ?: synchronized(this) {
-                if (instance == null) instance = LoginViewModel(dataManager)
-                instance!!
+                instance ?: LoginViewModel(dataManager).also { instance = it }
             }
     }
 
