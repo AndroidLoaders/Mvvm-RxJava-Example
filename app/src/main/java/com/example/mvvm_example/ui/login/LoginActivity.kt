@@ -45,6 +45,9 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
      *
      *  3). For all kind of android examples go to :
      *      https://github.com/journaldev/journaldev/tree/master/Android
+     *
+     *  4). Go and watch MotionLayout examples :
+     *      https://github.com/Hariofspades/MotionLayoutExperiments
      * */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
